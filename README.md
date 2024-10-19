@@ -1,4 +1,14 @@
-# Recurrent VLN-BERT
+# VLN research based on Recurrent VLN-BERT and VisualBERT
+visualBert(https://huggingface.co/docs/transformers/en/model_doc/visual_bert)
+
+maintainer: Baek Cheol Kim(u7617018), Chenyang Li(u7631563), Chen Yao(u7722352), Qiance Zhou(u7520051)
+
+## Proposal
+We aim to enhance the capabilities of VLN⟳BERT by replacing its V&L BERT model (OSCAR) with other
+Transformer-based models that have demonstrated strong performance in vision-language tasks, such as visualBert
+
+## Recurrent VLN-BERT
+This repositary forked from (https://github.com/YicongHong/Recurrent-VLN-BERT)
 
 Code of the **CVPR 2021 Oral** paper:<br>
 **A Recurrent Vision-and-Language BERT for Navigation**<br>
