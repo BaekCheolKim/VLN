@@ -1,11 +1,12 @@
 # VLN research based on Recurrent VLN-BERT and VisualBERT
+
+The purpose of this repositary is to maintain the code for ANU COMP8536 reserach project. We aim to enhance the capabilities of VLN⟳BERT by replacing its V&L BERT model (OSCAR) with other
+Transformer-based models that have demonstrated strong performance in vision-language tasks, such as visualBert. Originally forked from [Recurrent VLN-BERT](https://github.com/YicongHong/Recurrent-VLN-BERT)
+
 visualBert(https://huggingface.co/docs/transformers/en/model_doc/visual_bert)
 
 maintainer: Baek Cheol Kim(u7617018), Chenyang Li(u7631563), Chen Yao(u7722352), Qiance Zhou(u7520051)
 
-## Proposal
-We aim to enhance the capabilities of VLN⟳BERT by replacing its V&L BERT model (OSCAR) with other
-Transformer-based models that have demonstrated strong performance in vision-language tasks, such as visualBert
 
 ## Recurrent VLN-BERT
 This repositary forked from (https://github.com/YicongHong/Recurrent-VLN-BERT)
