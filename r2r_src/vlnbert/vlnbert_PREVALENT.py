@@ -9,12 +9,13 @@ import math
 import os
 import sys
 from io import open
+import logging
 
 import torch
 from torch import nn
 from torch.nn import CrossEntropyLoss, MSELoss
 
-from transformers.pytorch_transformers.modeling_bert import BertPreTrainedModel, BertConfig
+from pytorch_transformers import BertPreTrainedModel, BertConfig
 import pdb
 
 logger = logging.getLogger(__name__)
@@ -37,9 +38,10 @@ ACT2FN = {"gelu": gelu, "relu": torch.nn.functional.relu, "swish": swish}
 
 try:
     from apex.normalization.fused_layer_norm import FusedLayerNorm as BertLayerNorm
+    logger.info("Using Apex FusedLayerNorm for better speed.")
 except (ImportError, AttributeError) as e:
-    logger.info("Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex .")
-BertLayerNorm = torch.nn.LayerNorm
+    logger.info("Better speed can be achieved with apex installed from https://www.github.com/nvidia/apex.")
+    BertLayerNorm = torch.nn.LayerNorm
 
 class BertEmbeddings(nn.Module):
     """Construct the embeddings from word, position and token_type embeddings.
@@ -164,7 +166,7 @@ class BertIntermediate(nn.Module):
     def __init__(self, config):
         super(BertIntermediate, self).__init__()
         self.dense = nn.Linear(config.hidden_size, config.intermediate_size)
-        if isinstance(config.hidden_act, str) or (sys.version_info[0] == 2 and isinstance(config.hidden_act, unicode)):
+        if isinstance(config.hidden_act, str) or (sys.version_info[0] == 2 and isinstance(config.hidden_act)):
             self.intermediate_act_fn = ACT2FN[config.hidden_act]
         else:
             self.intermediate_act_fn = config.hidden_act

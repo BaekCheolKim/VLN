@@ -9,13 +9,23 @@ from torch import nn
 import torch.nn.functional as F
 from torch.nn import CrossEntropyLoss, MSELoss
 
-from transformers.pytorch_transformers.modeling_bert import (BertEmbeddings,
-        BertSelfAttention, BertAttention, BertEncoder, BertLayer,
-        BertSelfOutput, BertIntermediate, BertOutput,
-        BertPooler, BertLayerNorm, BertPreTrainedModel,
-		BertPredictionHeadTransform)
+from transformers.models.bert.modeling_bert import (
+    BertEmbeddings,
+    BertSelfAttention,
+    BertAttention,
+    BertEncoder,
+    BertLayer,
+    BertSelfOutput,
+    BertIntermediate,
+    BertOutput,
+    BertPooler,
+    BertPreTrainedModel,
+    BertPredictionHeadTransform,
+)
+
 
 logger = logging.getLogger(__name__)
+BertLayerNorm=nn.LayerNorm
 
 class CaptionBertSelfAttention(BertSelfAttention):
     """

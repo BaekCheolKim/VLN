@@ -2,7 +2,7 @@
 
 import sys
 sys.path.append('buildpy36')
-sys.path.append('Matterport_Simulator/build/')
+sys.path.append('/home/anucg/Recurrent-VLN-BERT/Matterport3DSimulator/build/')
 import MatterSim
 import csv
 import numpy as np

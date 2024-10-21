@@ -1,6 +1,6 @@
 # Recurrent VLN-BERT, 2020, by Yicong.Hong@anu.edu.au
 
-from transformers.pytorch_transformers import (BertConfig, BertTokenizer)
+from transformers import BertConfig, BertTokenizer
 
 def get_tokenizer(args):
     if args.vlnbert == 'oscar':
@@ -16,7 +16,7 @@ def get_vlnbert_models(args, config=None):
     config_class = BertConfig
 
     if args.vlnbert == 'oscar':
-        from vlnbert.vlnbert_OSCAR import VLNBert
+        from vlnbert_OSCAR import VLNBert
         model_class = VLNBert
         model_name_or_path = 'Oscar/pretrained_models/base-no-labels/ep_67_588997'
         vis_config = config_class.from_pretrained(model_name_or_path, num_labels=2, finetuning_task='vln-r2r')
@@ -31,7 +31,7 @@ def get_vlnbert_models(args, config=None):
         visual_model = model_class.from_pretrained(model_name_or_path, from_tf=False, config=vis_config)
 
     elif args.vlnbert == 'prevalent':
-        from vlnbert.vlnbert_PREVALENT import VLNBert
+        from vlnbert_PREVALENT import VLNBert
         model_class = VLNBert
         model_name_or_path = 'Prevalent/pretrained_model/pytorch_model.bin'
         vis_config = config_class.from_pretrained('bert-base-uncased')
