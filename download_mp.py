@@ -169,7 +169,7 @@ def main():
         print('Note that existing scan directories will be skipped. Delete partially downloaded directories to re-download.')
         print('***')
         print('Press any key to continue, or CTRL-C to exit.')
-        key = VFinput('')
+        key = input('')
         out_dir = os.path.join(args.out_dir, RELEASE)
         download_release(release_scans, out_dir, file_types)
 
