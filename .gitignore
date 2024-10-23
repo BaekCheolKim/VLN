@@ -24,3 +24,5 @@ snap/*
 
 logs/*
 !logs/.gitkeep
+
+*.sif
