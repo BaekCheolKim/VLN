@@ -150,7 +150,7 @@ def main():
     # download specific file types?
     if args.type:
         if not set(args.type) & set(FILETYPES):
-            print('ERROR: Invalid file type: ' + file_types)
+            print('ERROR: Invalid file type: ' + file_type)
             return
         file_types = args.type
 
@@ -169,9 +169,8 @@ def main():
         print('Note that existing scan directories will be skipped. Delete partially downloaded directories to re-download.')
         print('***')
         print('Press any key to continue, or CTRL-C to exit.')
-        key = input('')
+        key = VFinput('')
         out_dir = os.path.join(args.out_dir, RELEASE)
         download_release(release_scans, out_dir, file_types)
 
 if __name__ == "__main__": main()
-
